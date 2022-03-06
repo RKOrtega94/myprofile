@@ -7,9 +7,10 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { NgxTypedJsModule } from 'ngx-typed-js';
 import { AboutComponent } from './pages/about/about.component';
 import { ResumeComponent } from './pages/resume/resume.component';
+import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 
 @NgModule({
-  declarations: [HomeComponent, AboutComponent, ResumeComponent],
+  declarations: [HomeComponent, AboutComponent, ResumeComponent, PortfolioComponent],
   imports: [CommonModule, PublicRoutingModule, SharedModule, NgxTypedJsModule],
 })
 export class PublicModule {}
