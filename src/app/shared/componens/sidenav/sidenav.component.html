@@ -5,36 +5,16 @@
 <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 <header id="header" class="d-flex flex-column justify-content-center">
   <nav id="navbar" class="navbar nav-menu">
-    <ul>
+    <ul *ngFor="let item of sidenavList">
       <li>
-        <a href="/" class="nav-link scrollto active btn btn-link"
-          ><i class="bx bx-home"></i> <span>Home</span></a
+        <a
+          class="nav-link scrollto"
+          [routerLink]="[item.path]"
+          routerLinkActive="active"
         >
-      </li>
-      <li>
-        <a href="/about" class="nav-link scrollto"
-          ><i class="bx bx-user"></i> <span>About</span></a
-        >
-      </li>
-      <li>
-        <a href="/resume" class="nav-link scrollto"
-          ><i class="bx bx-file-blank"></i> <span>Resume</span></a
-        >
-      </li>
-      <li>
-        <a href="/portfolio" class="nav-link scrollto"
-          ><i class="bx bx-book-content"></i> <span>Portfolio</span></a
-        >
-      </li>
-      <li>
-        <a href="#services" class="nav-link scrollto"
-          ><i class="bx bx-server"></i> <span>Services</span></a
-        >
-      </li>
-      <li>
-        <a href="#contact" class="nav-link scrollto"
-          ><i class="bx bx-envelope"></i> <span>Contact</span></a
-        >
+          <i class="bx {{ item.icon }}"></i>
+          <span>{{ item.title }}</span>
+        </a>
       </li>
     </ul>
   </nav>
