@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -16,9 +17,23 @@ export class SidenavComponent implements OnInit {
     { path: '/contact', title: 'Contact', icon: 'bx-envelope' },
   ];
   routeName: string;
-  constructor(private router: Router) {
+  isOpen: boolean = false;
+  constructor(
+    private router: Router,
+    @Inject(DOCUMENT) private document: Document,
+    private renderer: Renderer2
+  ) {
     this.routeName = this.router.url;
   }
 
   ngOnInit(): void {}
+
+  toggleNav(): void {
+    this.isOpen = !this.isOpen;
+    if (this.isOpen) {
+      this.renderer.addClass(this.document.body, 'mobile-nav-active');
+    } else {
+      this.renderer.removeClass(this.document.body, 'mobile-nav-active');
+    }
+  }
 }
