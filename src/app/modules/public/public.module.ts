@@ -10,9 +10,11 @@ import { ResumeComponent } from './pages/resume/resume.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { AboutSectionComponent } from './components/about-section/about-section.component';
+import { SkillSectionComponent } from './components/skill-section/skill-section.component';
 
 @NgModule({
-  declarations: [HomeComponent, AboutComponent, ResumeComponent, PortfolioComponent, ServicesComponent, ContactComponent],
+  declarations: [HomeComponent, AboutComponent, ResumeComponent, PortfolioComponent, ServicesComponent, ContactComponent, AboutSectionComponent, SkillSectionComponent],
   imports: [CommonModule, PublicRoutingModule, SharedModule, NgxTypedJsModule],
 })
 export class PublicModule {}
