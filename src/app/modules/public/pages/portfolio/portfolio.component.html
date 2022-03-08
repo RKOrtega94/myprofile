@@ -47,6 +47,7 @@
                 ><i class="bx bx-link"></i
               ></a>
               <a
+                *ngIf="project.github"
                 href="{{ project.github }}"
                 target="_blank"
                 class="portfolio-details-lightbox"
