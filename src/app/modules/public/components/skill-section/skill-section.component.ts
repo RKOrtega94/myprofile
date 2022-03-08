@@ -9,6 +9,8 @@ import { ResumeService } from 'src/app/shared/services/resume.service';
 })
 export class SkillSectionComponent implements OnInit {
   skills: Skill[] = [];
+  language: Skill[] = [];
+  library: Skill[] = [];
   constructor(private resumeService: ResumeService) {}
 
   ngOnInit(): void {
@@ -17,6 +19,8 @@ export class SkillSectionComponent implements OnInit {
       this.skills.forEach((skill) => {
         skill.percentage = this.skillLevelToPercentage(skill.level);
         skill.color = this.skillLevelToColor(skill.level);
+        this.setLanguageSkill(skill);
+        this.setLibrarySkill(skill);
       });
     });
   }
@@ -49,5 +53,13 @@ export class SkillSectionComponent implements OnInit {
       default:
         return '#FFD600';
     }
+  }
+
+  setLanguageSkill(skill: Skill): void {
+    this.language = this.skills.filter((s) => s.type === 'Language');
+  }
+
+  setLibrarySkill(skill: Skill): void {
+    this.library = this.skills.filter((s) => s.type === 'Library');
   }
 }

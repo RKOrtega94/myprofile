@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Course } from 'src/app/core/models/course';
 import { Extracurricular } from 'src/app/core/models/extracurricular';
 import { Job } from 'src/app/core/models/job';

@@ -9,7 +9,41 @@
     </div>
 
     <div class="row">
-      <div class="col-xl-3 col-sm-6 col-12 mb-5" *ngFor="let skill of skills">
+      <h3 *ngIf="language.length > 0">Lenguajes</h3>
+      <div class="col-xl-3 col-sm-6 col-12 mb-5" *ngFor="let skill of language">
+        <div class="card">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex justify-content-between">
+                <div class="media-body text-left">
+                  <h3 class="primary">{{ skill.name }}</h3>
+                  <span>{{ skill.level }}</span>
+                </div>
+                <div class="align-self-center">
+                  <img
+                    class="float-right"
+                    height="50"
+                    src="{{ skill.image }}"
+                  />
+                </div>
+              </div>
+              <div class="progress mt-1 mb-0" style="height: 7px">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  [style.width]="skill.percentage"
+                  [style.backgroundColor]="skill.color"
+                  aria-valuenow="80"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h3 *ngIf="library.length > 0">Framworks / Librerías</h3>
+      <div class="col-xl-3 col-sm-6 col-12 mb-5" *ngFor="let skill of library">
         <div class="card">
           <div class="card-content">
             <div class="card-body">

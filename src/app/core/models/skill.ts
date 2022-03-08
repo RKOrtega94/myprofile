@@ -5,4 +5,5 @@ export interface Skill {
   percentage: string;
   color: string;
   image: string;
+  type: string;
 }
