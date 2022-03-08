@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Course } from 'src/app/core/models/course';
+import { ResumeService } from 'src/app/shared/services/resume.service';
 
 @Component({
   selector: 'app-resume',
@@ -9,7 +10,11 @@ import { Course } from 'src/app/core/models/course';
 export class ResumeComponent implements OnInit {
   courses: Course[] = [];
 
-  constructor() {}
+  constructor(private resumeService: ResumeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.resumeService.getCourses().subscribe((courses) => {
+      this.courses = courses;
+    });
+  }
 }

@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "rkosysdev"
+  },
+  "targets": {
+    "rkosysdev": {
+      "hosting": {
+        "myprofile": [
+          "rkosysdev"
+        ]
+      }
+    }
   }
 }
