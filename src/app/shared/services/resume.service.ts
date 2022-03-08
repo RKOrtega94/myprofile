@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { Course } from 'src/app/core/models/course';
 import { Extracurricular } from 'src/app/core/models/extracurricular';
 import { Job } from 'src/app/core/models/job';
+import { Projects } from 'src/app/core/models/projects';
 import { Skill } from 'src/app/core/models/skill';
 
 @Injectable({
@@ -15,6 +16,7 @@ export class ResumeService {
   jobsRef;
   extracurricularRef;
   skillRef;
+  projectRef;
 
   constructor(private firestore: Firestore) {
     this.resumeRef = collection(this.firestore, 'resume');
@@ -22,6 +24,7 @@ export class ResumeService {
     this.jobsRef = collection(this.firestore, 'jobs');
     this.extracurricularRef = collection(this.firestore, 'extracurricular');
     this.skillRef = collection(this.firestore, 'skills');
+    this.projectRef = collection(this.firestore, 'projects');
   }
 
   getCourses(): Observable<Course[]> {
@@ -43,6 +46,12 @@ export class ResumeService {
   getSkills(): Observable<Skill[]> {
     return collectionData(this.skillRef, { idField: 'id' }) as Observable<
       Skill[]
+    >;
+  }
+
+  getProjects(): Observable<Projects[]> {
+    return collectionData(this.projectRef, { idField: 'id' }) as Observable<
+      Projects[]
     >;
   }
 }
