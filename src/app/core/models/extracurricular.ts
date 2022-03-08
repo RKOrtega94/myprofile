@@ -1,8 +1,8 @@
 export interface Extracurricular {
-    id: number;
-    name: string;
-    description: string;
-    date: string;
-    business: string;
-    
+  id: number;
+  business: string;
+  job: string;
+  description: string;
+  city: string;
+  date: string;
 }
