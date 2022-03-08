@@ -13,6 +13,7 @@ import { AboutSectionComponent } from './components/about-section/about-section.
 import { SkillSectionComponent } from './components/skill-section/skill-section.component';
 import { ResumeSectionComponent } from './components/resume-section/resume-section.component';
 import { ServicesComponent } from './pages/services/services.component';
+import { PhotographyComponent } from './pages/photography/photography.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ServicesComponent } from './pages/services/services.component';
     AboutSectionComponent,
     SkillSectionComponent,
     ResumeSectionComponent,
+    PhotographyComponent,
   ],
   imports: [CommonModule, PublicRoutingModule, SharedModule, NgxTypedJsModule],
 })

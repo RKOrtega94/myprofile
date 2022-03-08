@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Skill } from 'src/app/core/models/skill';
+import { ResumeService } from 'src/app/shared/services/resume.service';
 
 @Component({
   selector: 'app-skill-section',
@@ -7,19 +8,46 @@ import { Skill } from 'src/app/core/models/skill';
   styleUrls: ['./skill-section.component.scss'],
 })
 export class SkillSectionComponent implements OnInit {
-  skills: Skill[] = [
-    { id: '1', name: 'Angular', percentage: '90%' },
-    { id: '2', name: 'React', percentage: '80%' },
-    { id: '3', name: 'Vue', percentage: '70%' },
-    { id: '4', name: 'Node', percentage: '60%' },
-    { id: '5', name: 'Express', percentage: '50%' },
-    { id: '6', name: 'MongoDB', percentage: '40%' },
-    { id: '7', name: 'MySQL', percentage: '30%' },
-    { id: '8', name: 'Firebase', percentage: '20%' },
-    { id: '9', name: 'AWS', percentage: '10%' },
-    { id: '10', name: 'Docker', percentage: '0%' },
-  ];
-  constructor() {}
+  skills: Skill[] = [];
+  constructor(private resumeService: ResumeService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.resumeService.getSkills().subscribe((skills) => {
+      this.skills = skills;
+      this.skills.forEach((skill) => {
+        skill.percentage = this.skillLevelToPercentage(skill.level);
+        skill.color = this.skillLevelToColor(skill.level);
+      });
+    });
+  }
+
+  skillLevelToPercentage(level: string): string {
+    switch (level) {
+      case 'Beginner':
+        return '25%';
+      case 'Intermediate':
+        return '50%';
+      case 'Advanced':
+        return '75%';
+      case 'Expert':
+        return '100%';
+      default:
+        return '0%';
+    }
+  }
+
+  skillLevelToColor(level: string): string {
+    switch (level) {
+      case 'Beginner':
+        return '#FF6D00';
+      case 'Intermediate':
+        return '#ADD8E6';
+      case 'Advanced':
+        return '#0000FF';
+      case 'Expert':
+        return '#00FF00';
+      default:
+        return '#FFD600';
+    }
+  }
 }
